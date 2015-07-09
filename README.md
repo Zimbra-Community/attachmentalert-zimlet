@@ -1,7 +1,7 @@
 Configurable Attachment Alert
 ==========
 
-This Zimlet alerts you when sending a message if no attachment exists. 
+This Zimlet alerts you when your forget to attach the attachment when sending an email message.
 
 The Zimlet will search for keywords in your message (for example, "attach" or "attachment"). 
 
