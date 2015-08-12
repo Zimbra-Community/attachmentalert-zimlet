@@ -22,7 +22,6 @@ Screenshot: https://raw.githubusercontent.com/barrydegraaff/attachmentalert-ziml
 
 If you find Zimbra OpenPGP Zimlet useful and want to support its continued development, you can make donations via:
 - PayPal: info@barrydegraaff.tk
-- Bitcoin: 1BaRRyS7wvGarEGgDwmPgRCygzcvocyxJt
 - Bank transfer: IBAN NL55ABNA0623226413 ; BIC ABNANL2A
 
 ========================================================================
