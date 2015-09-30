@@ -45,7 +45,7 @@ var ConfigurableAttachAlertZimlet = tk_barrydegraaff_attachalert_HandlerObject;
  * Defines the "zimlet name".
  */
 ConfigurableAttachAlertZimlet.ZIMLET_NAME = "ConfigurableAttachAlertZimlet";
-ConfigurableAttachAlertZimlet.AttachmentAlertKeywordsDefault = 'attach,bijlage,adjunto,fichero adjunto,env\u00EDo el fichero';
+ConfigurableAttachAlertZimlet.AttachmentAlertKeywordsDefault = 'attach,bijlage,adjunto,fichero adjunto,env\u00EDo el fichero,allegat';
 /**
  * Initializes the zimlet.
  *
