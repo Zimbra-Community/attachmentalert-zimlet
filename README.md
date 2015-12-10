@@ -16,9 +16,9 @@ This version allows you to optionally configure the keywords to look for in
 your email message. This way you can write emails in various languages and
 still be able to get the attachment alert.
 
-Screenshot: https://raw.githubusercontent.com/barrydegraaff/attachmentalert-zimlet/master/screenshot.png
+Screenshot: https://raw.githubusercontent.com/Zimbra-Community/attachmentalert-zimlet/master/screenshot.png
 
-Screenshot: https://raw.githubusercontent.com/barrydegraaff/attachmentalert-zimlet/master/screenshot-preferences.png
+Screenshot: https://raw.githubusercontent.com/Zimbra-Community/attachmentalert-zimlet/master/screenshot-preferences.png
 
 If you find Zimbra OpenPGP Zimlet useful and want to support its continued development, you can make donations via:
 - PayPal: info@barrydegraaff.tk
