@@ -31,7 +31,7 @@ If you find Zimbra OpenPGP Zimlet useful and want to support its continued devel
     su zimbra
     cd /tmp
     rm tk_barrydegraaff_attachmentalert*
-    wget https://github.com/Zimbra-Community/attachmentalert-zimlet/releases/download/0.2/tk_barrydegraaff_attachmentalert.zip
+    wget https://github.com/Zimbra-Community/attachmentalert-zimlet/raw/master/tk_barrydegraaff_attachmentalert.zip
     zmzimletctl deploy tk_barrydegraaff_attachmentalert.zip
     (wait 15 minutes for the deploy to propagate; or zmprov fc all && zmmailboxdctl restart)
 
@@ -40,7 +40,7 @@ If you find Zimbra OpenPGP Zimlet useful and want to support its continued devel
 
 ### License
 
-Copyright (C) 2015-2016  Barry de Graaff
+Copyright (C) 2015 Barry de Graaff
 The MIT License
 
 Copyright (C) 2013, 2014, 2015 Dennis Ploeger

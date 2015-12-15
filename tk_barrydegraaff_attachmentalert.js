@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015-2016  Barry de Graaff
+Copyright (C) 2015 Barry de Graaff
 The MIT License
 
 Copyright (C) 2013, 2014, 2015 Dennis Ploeger
@@ -45,11 +45,7 @@ var ConfigurableAttachAlertZimlet = tk_barrydegraaff_attachalert_HandlerObject;
  * Defines the "zimlet name".
  */
 ConfigurableAttachAlertZimlet.ZIMLET_NAME = "ConfigurableAttachAlertZimlet";
-/* Be carefull when adding new languages, NOT to trigger false positives in other languages, for example
- * the german word `anhang` should match, but it also matches `aanhanger` in dutch language, therefore we
- * need to define the regular expression as ' anhang ' (spaces on both sides to match).
- */
-ConfigurableAttachAlertZimlet.AttachmentAlertKeywordsDefault = 'attach,bijlage,adjunto,fichero adjunto,env\u00EDo el fichero,allegat,im anhang,ang\\.,angeh\u00E4ngt,anbei, anhang ,';
+ConfigurableAttachAlertZimlet.AttachmentAlertKeywordsDefault = 'attach,bijlage,adjunto,fichero adjunto,env\u00EDo el fichero,allegat';
 /**
  * Initializes the zimlet.
  *
