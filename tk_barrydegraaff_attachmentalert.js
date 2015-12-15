@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015 Barry de Graaff
+Copyright (C) 2015-2016  Barry de Graaff
 The MIT License
 
 Copyright (C) 2013, 2014, 2015 Dennis Ploeger
