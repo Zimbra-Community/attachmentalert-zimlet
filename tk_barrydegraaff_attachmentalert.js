@@ -180,6 +180,8 @@ function() {
    this._dialog.setButtonListener(DwtDialog.OK_BUTTON, new AjxListener(this, this._okBtnListner));
    this._dialog.setButtonListener(DwtDialog.CANCEL_BUTTON, new AjxListener(this, this._cancelBtn));
    this._dialog._setAllowSelection();
+   document.getElementById(this._dialog.__internalId+'_handle').style.backgroundColor = '#eeeeee';
+   document.getElementById(this._dialog.__internalId+'_title').style.textAlign = 'center';
    this._dialog.popup();
 };
 
