@@ -11,6 +11,7 @@ one attachment exists before sending. If no attachments exist, an alert dialog i
 This is a fork from:
 https://github.com/Zimbra-Community/adopted/tree/master/com_zimbra_attachmentalert
 
+This Zimlet is supported with Zimbra version 8.6 and above and is tested on 8.7.
 
 This version allows you to optionally configure the keywords to look for in
 your email message. This way you can write emails in various languages and
