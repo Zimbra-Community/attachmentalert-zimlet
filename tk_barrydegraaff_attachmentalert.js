@@ -235,11 +235,3 @@ function() {
       this._dialog.popdown();
    } catch (err) { }
 };
-
-ConfigurableAttachAlertZimlet.prototype._cancelBtn =
-function() {
-   try{
-      this._dialog.setContent('');
-      this._dialog.popdown();
-   } catch (err) { }
-};
