@@ -45,15 +45,38 @@ var ConfigurableAttachAlertZimlet = tk_barrydegraaff_attachalert_HandlerObject;
  * Defines the "zimlet name".
  */
 ConfigurableAttachAlertZimlet.ZIMLET_NAME = "ConfigurableAttachAlertZimlet";
-ConfigurableAttachAlertZimlet.AttachmentAlertKeywordsDefault = 'attach,bijlage,adjunto,fichero adjunto,env\u00EDo el fichero,allegat';
+
 /**
  * Initializes the zimlet.
  *
  */
 ConfigurableAttachAlertZimlet.prototype.init =
 function() {
-ConfigurableAttachAlertZimlet.keywords = this.getUserPropertyInfo('AttachmentAlertKeywords').value ? this.getUserPropertyInfo('AttachmentAlertKeywords').value : ConfigurableAttachAlertZimlet.AttachmentAlertKeywordsDefault;
+      //Load localization strings with fallback
+   ConfigurableAttachAlertZimlet.prototype.lang();
+   ConfigurableAttachAlertZimlet.AttachmentAlertKeywordsDefault = ConfigurableAttachAlertZimlet.lang[0];
+   ConfigurableAttachAlertZimlet.keywords = this.getUserPropertyInfo('AttachmentAlertKeywords').value ? this.getUserPropertyInfo('AttachmentAlertKeywords').value : ConfigurableAttachAlertZimlet.AttachmentAlertKeywordsDefault;
 };
+
+ConfigurableAttachAlertZimlet.prototype.lang = function () {
+   var english = [];
+   english[0] = 'attach,bijlage,adjunto,fichero adjunto,env\u00EDo el fichero,allegat';
+   english[1] = 'No attachment(s) found. Continue?';
+   english[2] = 'Attachment Alert preferences';
+   english[3] = 'Keywords to look for in the email body:';
+   var zimletInstance = appCtxt._zimletMgr.getZimletByName('tk_barrydegraaff_attachmentalert').handlerObject;
+   ConfigurableAttachAlertZimlet.lang = [];
+   for (i = 0; i < 100; i++) {
+         ConfigurableAttachAlertZimlet.lang[i] = zimletInstance.getMessage(i.toString());
+   }
+   
+   if(ConfigurableAttachAlertZimlet.lang[1].indexOf('???') == 0)
+   {
+      //Seems we are running from dev folder on the server, but not passed ?dev=1 in the browser, fallback to english
+      ConfigurableAttachAlertZimlet.lang = english;            
+   }
+}
+
 
 /**
  * Initializes the regular expression.
@@ -64,7 +87,7 @@ function() {
 	if (this._attachWordsRegEx)
 		return;
 	this._attachStr = ConfigurableAttachAlertZimlet.keywords;
-	this._errorMsgStr = 'No attachment(s) found. Continue?';
+	this._errorMsgStr = ConfigurableAttachAlertZimlet.lang[1];
 	this._attachWordsList = this._attachStr.split(",");
 	this._attachWordsRegEx = [];
 	for (var n = 0; n < this._attachWordsList.length; n++) {
@@ -175,8 +198,8 @@ ConfigurableAttachAlertZimlet.prototype.singleClicked = function() {
  */
 ConfigurableAttachAlertZimlet.prototype._showPrefDialog =
 function() {
-   this._dialog = new ZmDialog( { title:'Attachment Alert preferences', parent:this.getShell(), standardButtons:[DwtDialog.CANCEL_BUTTON,DwtDialog.OK_BUTTON], disposeOnPopDown:true } );
-   this._dialog.setContent('Keywords to look for in the email body:<br><br><input type="text" id="ConfigurableAttachAlertZimletKeywords" style="width:350px" value="'+ ConfigurableAttachAlertZimlet.keywords +'"><br><br><button onclick="document.getElementById(\'ConfigurableAttachAlertZimletKeywords\').value=\'$disabled\'">Disable alert</button><button onclick="document.getElementById(\'ConfigurableAttachAlertZimletKeywords\').value=\''+ConfigurableAttachAlertZimlet.AttachmentAlertKeywordsDefault+'\'">Restore default</button><br><br>Browser reload required.');
+   this._dialog = new ZmDialog( { title:ConfigurableAttachAlertZimlet.lang[2], parent:this.getShell(), standardButtons:[DwtDialog.CANCEL_BUTTON,DwtDialog.OK_BUTTON], disposeOnPopDown:true } );
+   this._dialog.setContent(ConfigurableAttachAlertZimlet.lang[3]+'<br><br><input type="text" id="ConfigurableAttachAlertZimletKeywords" style="width:350px" value="'+ ConfigurableAttachAlertZimlet.keywords +'"><br><br><button onclick="document.getElementById(\'ConfigurableAttachAlertZimletKeywords\').value=\'$disabled\'">'+ZmMsg['chatFeatureDisabled']+'</button><button onclick="document.getElementById(\'ConfigurableAttachAlertZimletKeywords\').value=\''+ConfigurableAttachAlertZimlet.AttachmentAlertKeywordsDefault+'\'">'+ZmMsg['restoreDefaults']+'</button><br><br>'+ZmMsg['afterReload']);
    this._dialog.setButtonListener(DwtDialog.OK_BUTTON, new AjxListener(this, this._okBtnListner));
    this._dialog.setButtonListener(DwtDialog.CANCEL_BUTTON, new AjxListener(this, this._cancelBtn));
    this._dialog._setAllowSelection();
@@ -205,6 +228,14 @@ function() {
 
 /* This method is called when the dialog "CANCEL" button is clicked
  */
+ConfigurableAttachAlertZimlet.prototype._cancelBtn =
+function() {
+   try{
+      this._dialog.setContent('');
+      this._dialog.popdown();
+   } catch (err) { }
+};
+
 ConfigurableAttachAlertZimlet.prototype._cancelBtn =
 function() {
    try{
