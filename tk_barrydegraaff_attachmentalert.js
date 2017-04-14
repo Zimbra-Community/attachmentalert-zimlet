@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015 Barry de Graaff
+Copyright (C) 2015-2017 Barry de Graaff
 The MIT License
 
 Copyright (C) 2013, 2014, 2015 Dennis Ploeger
@@ -190,6 +190,37 @@ ConfigurableAttachAlertZimlet.prototype.doubleClicked = function() {
  */
 ConfigurableAttachAlertZimlet.prototype.singleClicked = function() {
 	this._showPrefDialog();
+};
+
+/* Work-around 8.7.7 regression
+*  Bug: https://bugzilla.zimbra.com/show_bug.cgi?id=107013
+*  Fix: https://github.com/Zimbra/zm-ajax/pull/5
+*/ 
+DwtControl.prototype._position =
+function(loc) {
+      this._checkState();
+      var sizeShell = this.shell.getSize();
+      var sizeThis = this.getSize();
+      var x, y;
+      if(sizeThis)
+      {
+         if (!loc) {
+            // if no location, go for the middle
+            x = Math.round((sizeShell.x - sizeThis.x) / 2);
+            y = Math.round((sizeShell.y - sizeThis.y) / 2);
+         } else {
+            x = loc.x;
+            y = loc.y;
+         }
+         // try to stay within shell boundaries
+         if ((x + sizeThis.x) > sizeShell.x) {
+            x = sizeShell.x - sizeThis.x;
+         }
+         if ((y + sizeThis.y) > sizeShell.y) {
+            y = sizeShell.y - sizeThis.y;
+         }
+         this.setLocation(x, y);
+      }
 };
 
 /**
