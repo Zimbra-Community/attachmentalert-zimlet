@@ -1,4 +1,4 @@
-<zimlet name="tk_barrydegraaff_attachmentalert" version="0.6" label="${msg.label}" description="${msg.description}" target="main compose-window">
+<zimlet name="tk_barrydegraaff_attachmentalert" version="0.7" label="${msg.label}" description="${msg.description}" target="main compose-window">
 	<include>tk_barrydegraaff_attachmentalert.js</include>
 	<handlerObject>tk_barrydegraaff_attachalert_HandlerObject</handlerObject>
   <zimletPanelItem label="${msg.label}" icon="Attachment">
