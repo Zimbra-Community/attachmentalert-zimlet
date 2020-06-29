@@ -11,7 +11,7 @@ one attachment exists before sending. If no attachments exist, an alert dialog i
 This is a fork from:
 https://github.com/Zimbra-Community/adopted/tree/master/com_zimbra_attachmentalert
 
-This Zimlet is supported with Zimbra version 8.7.11 and above and is tested on 8.8.9.
+This Zimlet is supported with Zimbra version 8.7.11 and above and is tested on 8.8.15.
 
 This version allows you to optionally configure the keywords to look for in
 your email message. This way you can write emails in various languages and
@@ -32,7 +32,7 @@ If you find Zimbra OpenPGP Zimlet useful and want to support its continued devel
     su zimbra
     cd /tmp
     rm tk_barrydegraaff_attachmentalert*
-    wget https://github.com/Zimbra-Community/attachmentalert-zimlet/releases/download/0.4/tk_barrydegraaff_attachmentalert.zip
+    wget https://github.com/Zimbra-Community/attachmentalert-zimlet/releases/download/0.6/tk_barrydegraaff_attachmentalert.zip
     zmzimletctl deploy tk_barrydegraaff_attachmentalert.zip
     (wait 15 minutes for the deploy to propagate; or zmprov fc all && zmmailboxdctl restart)
 
@@ -41,7 +41,7 @@ If you find Zimbra OpenPGP Zimlet useful and want to support its continued devel
 
 ### License
 
-Copyright (C) 2015 Barry de Graaff
+Copyright (C) 2015-2020 Barry de Graaff
 The MIT License
 
 Copyright (C) 2013, 2014, 2015 Dennis Ploeger
